@@ -53,6 +53,46 @@ const Index = () => {
     { name: 'Форсунки', material: 'Латунь хромированная', thickness: '-' },
   ];
 
+  const billOfMaterials = [
+    { category: 'Металлоконструкции', items: [
+      { name: 'Лист нержавеющей стали AISI 304 (1.5мм)', quantity: 4, unit: 'шт', size: '1200x900 мм' },
+      { name: 'Лист нержавеющей стали AISI 304 (2мм)', quantity: 2, unit: 'шт', size: '800x700 мм' },
+      { name: 'Уголок нержавеющий 30x30x3', quantity: 12, unit: 'м', size: '-' },
+      { name: 'Профиль квадратный 40x40x2', quantity: 8, unit: 'м', size: '-' },
+    ]},
+    { category: 'Гидравлика', items: [
+      { name: 'Форсунка распылительная 360°', quantity: 8, unit: 'шт', size: '1/4"' },
+      { name: 'Насос центробежный', quantity: 1, unit: 'шт', size: '2.4 кВт' },
+      { name: 'Шланг армированный', quantity: 15, unit: 'м', size: '12 мм' },
+      { name: 'Фитинги латунные', quantity: 24, unit: 'шт', size: '1/4"-1/2"' },
+      { name: 'Кран шаровой', quantity: 4, unit: 'шт', size: '1/2"' },
+      { name: 'Фильтр механической очистки', quantity: 2, unit: 'шт', size: '100 мкм' },
+    ]},
+    { category: 'Электрика', items: [
+      { name: 'ТЭН нагревательный', quantity: 2, unit: 'шт', size: '2 кВт' },
+      { name: 'Вентилятор осевой', quantity: 2, unit: 'шт', size: '1200 Вт' },
+      { name: 'Панель управления сенсорная', quantity: 1, unit: 'шт', size: '7"' },
+      { name: 'Датчик температуры', quantity: 3, unit: 'шт', size: 'PT100' },
+      { name: 'Датчик движения инфракрасный', quantity: 2, unit: 'шт', size: '-' },
+      { name: 'Кнопка аварийной остановки', quantity: 1, unit: 'шт', size: 'IP65' },
+      { name: 'Кабель силовой ПВС 3x2.5', quantity: 20, unit: 'м', size: '-' },
+      { name: 'Автоматический выключатель', quantity: 3, unit: 'шт', size: '16А' },
+    ]},
+    { category: 'Пластик и уплотнители', items: [
+      { name: 'Лист поликарбоната ударопрочный', quantity: 1, unit: 'шт', size: '1000x800x8 мм' },
+      { name: 'Уплотнитель силиконовый', quantity: 8, unit: 'м', size: '10x10 мм' },
+      { name: 'Уплотнительная лента', quantity: 12, unit: 'м', size: '20x5 мм' },
+    ]},
+    { category: 'Крепёж', items: [
+      { name: 'Болты нержавеющие М6', quantity: 100, unit: 'шт', size: '20-40 мм' },
+      { name: 'Гайки нержавеющие М6', quantity: 100, unit: 'шт', size: '-' },
+      { name: 'Шайбы нержавеющие М6', quantity: 120, unit: 'шт', size: '-' },
+      { name: 'Заклёпки вытяжные', quantity: 50, unit: 'шт', size: '4x10 мм' },
+      { name: 'Петли дверные усиленные', quantity: 4, unit: 'шт', size: '-' },
+      { name: 'Замок-защёлка', quantity: 2, unit: 'шт', size: '-' },
+    ]},
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -94,7 +134,7 @@ const Index = () => {
         </div>
 
         <Tabs defaultValue="design" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 max-w-2xl mx-auto h-auto p-1 bg-white/80 backdrop-blur">
+          <TabsList className="grid w-full grid-cols-4 max-w-3xl mx-auto h-auto p-1 bg-white/80 backdrop-blur">
             <TabsTrigger value="design" className="text-sm py-3">
               <Icon name="Box" size={16} className="mr-2" />
               Конструкция
@@ -106,6 +146,10 @@ const Index = () => {
             <TabsTrigger value="materials" className="text-sm py-3">
               <Icon name="Wrench" size={16} className="mr-2" />
               Материалы
+            </TabsTrigger>
+            <TabsTrigger value="bom" className="text-sm py-3">
+              <Icon name="ClipboardList" size={16} className="mr-2" />
+              Спецификация
             </TabsTrigger>
           </TabsList>
 
@@ -329,6 +373,80 @@ const Index = () => {
                       <span>Уплотнители устойчивы к моющим средствам и дезинфектантам</span>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="bom" className="space-y-6 animate-fade-in">
+            <Card className="overflow-hidden border-none bg-white/80 backdrop-blur">
+              <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-6 border-b">
+                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                  <Icon name="ClipboardList" size={28} />
+                  Перечень материалов и элементов (BOM)
+                </h2>
+              </div>
+              
+              <div className="p-6 space-y-6">
+                {billOfMaterials.map((category, catIndex) => (
+                  <div key={catIndex}>
+                    <div className="bg-gradient-to-r from-primary/5 to-accent/5 p-4 rounded-lg mb-4">
+                      <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                        <Icon name="Package" size={20} className="text-primary" />
+                        {category.category}
+                      </h3>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead>
+                          <tr className="border-b-2 border-gray-200">
+                            <th className="text-left py-3 px-4 font-semibold text-gray-900">Наименование</th>
+                            <th className="text-center py-3 px-4 font-semibold text-gray-900">Кол-во</th>
+                            <th className="text-center py-3 px-4 font-semibold text-gray-900">Ед. изм.</th>
+                            <th className="text-left py-3 px-4 font-semibold text-gray-900">Размер/Тип</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {category.items.map((item, itemIndex) => (
+                            <tr 
+                              key={itemIndex} 
+                              className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                            >
+                              <td className="py-3 px-4 text-gray-900">{item.name}</td>
+                              <td className="py-3 px-4 text-center font-semibold text-primary">{item.quantity}</td>
+                              <td className="py-3 px-4 text-center text-gray-700">{item.unit}</td>
+                              <td className="py-3 px-4 text-gray-700">{item.size}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    {catIndex < billOfMaterials.length - 1 && <div className="h-6" />}
+                  </div>
+                ))}
+
+                <div className="mt-8 grid md:grid-cols-2 gap-4">
+                  <div className="p-6 bg-green-50 rounded-lg border-l-4 border-l-green-500">
+                    <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                      <Icon name="CheckCircle2" size={20} className="text-green-600" />
+                      Общая статистика
+                    </h3>
+                    <ul className="space-y-1 text-sm text-gray-700">
+                      <li>Категорий материалов: <strong>{billOfMaterials.length}</strong></li>
+                      <li>Всего позиций: <strong>{billOfMaterials.reduce((sum, cat) => sum + cat.items.length, 0)}</strong></li>
+                    </ul>
+                  </div>
+
+                  <div className="p-6 bg-blue-50 rounded-lg border-l-4 border-l-primary">
+                    <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                      <Icon name="Info" size={20} className="text-primary" />
+                      Примечания
+                    </h3>
+                    <ul className="space-y-1 text-sm text-gray-700">
+                      <li>Указаны минимально необходимые количества</li>
+                      <li>Рекомендуется запас 10% по расходникам</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </Card>
