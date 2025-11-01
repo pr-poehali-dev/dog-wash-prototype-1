@@ -64,7 +64,7 @@ const Index = () => {
             </Badge>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
-            BANG RODIN GEN-2
+            МОЙ ПЁС
           </h1>
           <p className="text-xl text-gray-600 mb-2">
             Автоматическая мойка для собак средних и крупных пород
@@ -339,7 +339,7 @@ const Index = () => {
           <Separator className="mb-6" />
           <p className="flex items-center justify-center gap-2">
             <Icon name="ShieldCheck" size={16} />
-            Документация защищена авторским правом © 2025 BANG RODIN | Версия 2.0
+            Документация защищена авторским правом © 2025 МОЙ ПЁС | Версия 2.0
           </p>
         </footer>
       </div>
