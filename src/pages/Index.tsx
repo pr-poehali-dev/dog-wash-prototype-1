@@ -191,8 +191,8 @@ const Index = () => {
                 <div className="bg-gray-50 rounded-xl p-4 border-2 border-gray-200">
                   {activeView === '3d' ? (
                     <img 
-                      src="https://cdn.poehali.dev/files/683eb447-c8cb-4a72-b0ec-4d01e05033a9.png"
-                      alt="3D вид BANG RODIN GEN-2"
+                      src="https://cdn.poehali.dev/files/5d1ff307-cfac-4a80-a533-136509edb1cd.jpg"
+                      alt="3D вид МОЙ ПЁС GEN-2"
                       className="w-full h-auto rounded-lg"
                     />
                   ) : (
