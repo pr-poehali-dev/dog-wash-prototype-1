@@ -197,7 +197,7 @@ const Index = () => {
                     />
                   ) : (
                     <img 
-                      src="https://cdn.poehali.dev/files/32e23f42-29f7-41a8-bc4f-4e259099672b.jpeg"
+                      src="https://cdn.poehali.dev/files/504f6442-80dd-42d8-9529-1d6769f8a36f.jpeg"
                       alt="Технические чертежи"
                       className="w-full h-auto rounded-lg"
                     />
