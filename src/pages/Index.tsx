@@ -97,11 +97,20 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <header className="mb-12 text-center animate-fade-in">
-          <div className="inline-block mb-4">
-            <Badge variant="outline" className="text-sm px-4 py-1.5 bg-white/80 backdrop-blur">
-              <Icon name="FileText" size={14} className="mr-2" />
-              Техническая документация
-            </Badge>
+          <div className="flex justify-between items-start mb-4">
+            <div className="inline-block">
+              <Badge variant="outline" className="text-sm px-4 py-1.5 bg-white/80 backdrop-blur">
+                <Icon name="FileText" size={14} className="mr-2" />
+                Техническая документация
+              </Badge>
+            </div>
+            <a 
+              href="/pitch"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              <Icon name="Presentation" size={16} />
+              Питч-дек
+            </a>
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
             МОЙ ПЁС
